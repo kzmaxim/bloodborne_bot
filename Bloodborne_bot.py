@@ -1,7 +1,7 @@
 from aiogram import types, Dispatcher, Bot, executor
 from aiogram.types import ReplyKeyboardMarkup, ReplyKeyboardRemove, KeyboardButton, InlineKeyboardMarkup, InlineKeyboardButton
 
-TOKEN_API = "5458400970:AAFGHAGkcJjKpNqCLRNo2e1UfdM32I54X-I"
+TOKEN_API = "TOKEN"
 bot = Bot(TOKEN_API)
 dp = Dispatcher(bot)
 HELP_COMMAND = '''
