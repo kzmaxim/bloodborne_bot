@@ -60,7 +60,7 @@ async def on_startup(_):
     print('Старт бота...')
 
 
-@dp.message_handler(commands=['start'])
+@dp.message_handler(commands=['start']) # Запуск бота, также запускается клавиатура
 async def start_command(message: types.Message):
     await bot.send_message(
         chat_id=message.from_user.id,
@@ -69,7 +69,7 @@ async def start_command(message: types.Message):
     )
 
 
-@dp.message_handler(commands=['help'])
+@dp.message_handler(commands=['help'])  # Список всех комманд бота
 async def help_command(message: types.Message):
     await bot.send_message(
         chat_id=message.from_user.id,
@@ -79,7 +79,7 @@ async def help_command(message: types.Message):
     )
 
 
-@dp.message_handler(commands=['link'])
+@dp.message_handler(commands=['link'])  # Получить ссылку на фандом и вики по Бладборну с inline-клавиатуры 
 async def link_command(message: types.Message):
     link_ikb = InlineKeyboardMarkup(row_width=2)
     link_ib1 = InlineKeyboardButton(
@@ -98,7 +98,7 @@ async def link_command(message: types.Message):
     )
 
 
-@dp.message_handler(commands=['builds_opinion'])
+@dp.message_handler(commands=['builds_opinion'])    # Голосование за лучший билд
 async def opinion_command(message: types.Message):
     opinion_ikb = InlineKeyboardMarkup(row_width=2)
     opinion_ib1 = InlineKeyboardButton(
@@ -138,7 +138,7 @@ async def opinion_callback(callback: types.CallbackQuery):
         await callback.answer('Вы выбрали Ловкий')
 
 
-@dp.message_handler(commands=['best_builds'])
+@dp.message_handler(commands=['best_builds'])   # Список лучших билдов, запускается клавиатура со список билдов
 async def bb_command(message: types.Message):
     bb_kb = ReplyKeyboardMarkup(resize_keyboard=True)
     bb_b1 = KeyboardButton('/blood')
@@ -156,7 +156,7 @@ async def bb_command(message: types.Message):
     )
 
 
-@dp.message_handler(commands=['blood'])
+@dp.message_handler(commands=['blood']) # Описание билда через кровь
 async def blood_command(message: types.Message):
     await bot.send_photo(
         chat_id=message.from_user.id,
@@ -166,7 +166,7 @@ async def blood_command(message: types.Message):
     )
 
 
-@dp.message_handler(commands=['arcane'])
+@dp.message_handler(commands=['arcane']) # Описание билда через тайну
 async def arcane_command(message: types.Message):
     await bot.send_photo(
         chat_id=message.from_user.id,
@@ -176,7 +176,7 @@ async def arcane_command(message: types.Message):
     )
 
 
-@dp.message_handler(commands=['strength'])
+@dp.message_handler(commands=['strength']) # Описание билда через силу
 async def strength_command(message: types.Message):
     await bot.send_photo(
         chat_id=message.from_user.id,
@@ -186,7 +186,7 @@ async def strength_command(message: types.Message):
     )
 
 
-@dp.message_handler(commands=['best_weapons'])
+@dp.message_handler(commands=['best_weapons'])  # список лучшего оружия
 async def weapon_command(message: types.Message):
     await bot.send_message(
         chat_id=message.from_user.id,
@@ -194,7 +194,7 @@ async def weapon_command(message: types.Message):
     )
 
 
-@dp.message_handler(commands=['difficult_bosses'])
+@dp.message_handler(commands=['difficult_bosses'])  # список сложнейших боссов
 async def bosses_command(message: types.Message):
     await bot.send_message(
         chat_id=message.from_user.id,
